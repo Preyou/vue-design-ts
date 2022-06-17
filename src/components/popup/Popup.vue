@@ -36,6 +36,7 @@
 
 <script lang="ts">
 import { Close } from '@icon-park/vue-next'
+import drag from './drag'
 
 type Oper = {
   name: string,
@@ -48,24 +49,27 @@ export default defineComponent({
   props: {
     headless: {
       type: Boolean,
-      default: false,
+      default: false
     },
     titleText: {
       type: String,
-      default: '',
+      default: ''
     },
     titleAlign: {
       type: String,
-      default: 'left',
+      default: 'left'
     },
     titleStyle: {
       type: Object,
-      default: () => { },
+      default: _ => _
     },
     operations: {
       type: Array<'close' | Oper>,
-      default: () => ['close'],
-    },
+      default: () => ['close']
+    }
+  },
+  directives: {
+    drag
   },
   data() {
     return {
@@ -74,16 +78,16 @@ export default defineComponent({
           name: 'close',
           title: '关闭',
           icon: Close,
-          handler: console.log,
-        },
-      ],
+          handler: console.log
+        }
+      ]
     }
   },
   computed: {
     opers() {
       return this.operations.map(oper => (typeof oper === 'string' ? this.defaultOpers.find(({ name }) => name === oper) : oper)).filter(_ => _) as Oper[]
-    },
-  },
+    }
+  }
 })
 </script>
 <style scoped>

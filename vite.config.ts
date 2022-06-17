@@ -27,7 +27,9 @@ export default defineConfig({
       },
     }),
   ],
+
   resolve: {
+    extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json'],
     alias: {
       '@': resolve(__dirname, 'src'), // 路径别名
     },

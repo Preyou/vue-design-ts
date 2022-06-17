@@ -10,6 +10,7 @@ declare module '@vue/runtime-core' {
     NIcon: typeof import('naive-ui')['NIcon']
     NSpace: typeof import('naive-ui')['NSpace']
     Popup: typeof import('./src/components/popup/Popup.vue')['default']
+    PopUp: typeof import('./src/components/popup/PopUp.vue')['default']
   }
 }
 
