@@ -7,13 +7,13 @@ module.exports = {
   extends: [
     'plugin:@typescript-eslint/recommended',
     'plugin:vue/vue3-recommended',
-    'airbnb-base',
     './.eslintrc-auto-import.json',
   ],
   parserOptions: {
     parser: '@typescript-eslint/parser',
     ecmaVersion: 2020,
   },
+  plugins: ['import'],
   rules: {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off', // 禁用 debugger
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off', // 禁用 console
@@ -31,7 +31,6 @@ module.exports = {
     'max-len': 'off', // 强制一行的最大长度
     'no-new': 'off', // 禁止使用 new 以避免产生副作用
     'linebreak-style': 'off', // 强制使用一致的换行风格
-    'import/extensions': 'error', // 确保在导入路径中统一使用文件扩展名
     'eol-last': 'error', // 要求或禁止文件末尾存在空行
     'no-shadow': 'error', // 禁止变量声明与外层作用域的变量同名
     'no-unused-vars': 'off', // 禁止出现未使用过的变量
@@ -86,5 +85,9 @@ module.exports = {
       },
     ],
     'vue/singleline-html-element-content-newline': 'off', // 要求单行元素的内容前后有一个换行符
+    // 'import/extensions': ['error', 'always', {
+    //   'js': 'never',
+    //   'vue': 'never',
+    // }],
   },
 }

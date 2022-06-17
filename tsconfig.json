@@ -1,4 +1,5 @@
 {
+  "compileOnSave": true,
   "compilerOptions": {
     "target": "esnext",
     "useDefineForClassFields": true,
@@ -6,6 +7,9 @@
     "moduleResolution": "node",
     "strict": true,
     "jsx": "preserve",
+    // 输出目录
+    "outDir": "./output",
+    // 是否包含可以用于 debug 的 sourceMap
     "sourceMap": true,
     "resolveJsonModule": true,
     "isolatedModules": true,

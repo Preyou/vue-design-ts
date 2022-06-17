@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="home">
-      <ThePopup />
+      <ThePopup :operations="['close']" />
     </div>
   </div>
 </template>
@@ -11,10 +11,10 @@ import ThePopup from '@/components/popup/Popup.vue'
 
 </script>
 <style scoped>
-.home{
-    width: 80vw;
-    height: 80vh;
-    background-color: aquamarine;
-    margin: 0 auto;
+.home {
+  width: 80vw;
+  height: 80vh;
+  background-color: aquamarine;
+  margin: 0 auto;
 }
 </style>

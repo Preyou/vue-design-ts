@@ -37,6 +37,13 @@
 <script lang="ts">
 import { Close } from '@icon-park/vue-next'
 
+type Oper = {
+  name: string,
+  title: string,
+  icon: typeof Close,
+  handler(): void
+}
+
 export default defineComponent({
   props: {
     headless: {
@@ -53,10 +60,10 @@ export default defineComponent({
     },
     titleStyle: {
       type: Object,
-      default: () => {},
+      default: () => { },
     },
     operations: {
-      type: Array,
+      type: Array<'close' | Oper>,
       default: () => ['close'],
     },
   },
@@ -74,7 +81,7 @@ export default defineComponent({
   },
   computed: {
     opers() {
-      return this.operations.map(oper => (typeof oper === 'string' ? this.defaultOpers.find(({ name }) => name === oper) : oper)).filter(_ => _)
+      return this.operations.map(oper => (typeof oper === 'string' ? this.defaultOpers.find(({ name }) => name === oper) : oper)).filter(_ => _) as Oper[]
     },
   },
 })
