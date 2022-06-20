@@ -1,12 +1,16 @@
 <template>
   <n-card
+    v-drag="$refs"
     :segmented="{
       content: true,
       footer: 'soft'
     }"
   >
-    <template #header>
+    <template
+      #header
+    >
       <n-space
+        ref="header"
         justify="space-between"
         align="center"
       >
@@ -46,6 +50,9 @@ type Oper = {
 }
 
 export default defineComponent({
+  directives: {
+    drag
+  },
   props: {
     headless: {
       type: Boolean,
@@ -61,15 +68,12 @@ export default defineComponent({
     },
     titleStyle: {
       type: Object,
-      default: _ => _
+      default: () => ({})
     },
     operations: {
       type: Array<'close' | Oper>,
       default: () => ['close']
     }
-  },
-  directives: {
-    drag
   },
   data() {
     return {

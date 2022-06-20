@@ -16,5 +16,6 @@ import ThePopup from '@/components/popup/Popup.vue'
   height: 80vh;
   background-color: aquamarine;
   margin: 0 auto;
+  overflow: hidden;
 }
 </style>
