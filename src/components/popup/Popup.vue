@@ -1,6 +1,6 @@
 <template>
   <n-card
-    v-drag="$refs"
+    v-drag:[true]="dragConfig"
     :segmented="{
       content: true,
       footer: 'soft'
@@ -77,6 +77,10 @@ export default defineComponent({
   },
   data() {
     return {
+      dragConfig:{
+        // container:document.body,
+        // dragBar:
+      },
       defaultOpers: [
         {
           name: 'close',

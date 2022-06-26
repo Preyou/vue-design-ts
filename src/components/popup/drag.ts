@@ -1,30 +1,31 @@
-import { ObjectDirective, VNode,nextTick  } from 'vue'
+import { ObjectDirective, VNode, DirectiveBinding } from 'vue'
 
-const drag:ObjectDirective<HTMLElement,VNode> = {
-  mounted(el, binding, vnode) {
-    setTimeout(() => {
-      debugger
-      console.log(el, binding, vnode)
+interface TValue {
+  container: HTMLElement
+  dragBar: HTMLElement
+}
+const drag: ObjectDirective<HTMLElement, TValue> = {
+  // { arg = true,value = { container:document.body,dragBar:el } as TValue }
+  mounted(el, { arg = true, value }, vnode) {
+    const container = value.container ?? document.body
+    const dragBar = value.dragBar ?? el
 
-    }, 100)
-    nextTick(()=>console.log(binding))
-    console.log(binding)
-
-    el.addEventListener('mousedown', (e:MouseEvent) => {
-      el.style.cursor = 'move'
-      el.style.position = 'relative'
-      e.preventDefault()
-      const { left, top } = el.getBoundingClientRect(),
-        x = e.clientX - left,
-        y = e.clientY - top,
-        move = (ev:MouseEvent) => {
-          el.style.left = `${ ev.clientX - x }px`
-          el.style.top = `${ ev.clientY - y }px`
-        }
+    container.appendChild(el)
+    container.style.position = 'relative'
+    dragBar.addEventListener('mousedown', (e: MouseEvent) => {
+      const { offsetLeft, offsetTop } = el
+      el.style.position = 'absolute'
+      el.style.left = offsetLeft + 'px'
+      el.style.top = offsetTop + 'px'
+      const { pageX, pageY } = e
+      // e.preventDefault()
+      const move = (ev: MouseEvent) => {
+        el.style.left = `${ offsetLeft + ev.pageX - pageX }px`
+        el.style.top = `${ offsetTop + ev.pageY - pageY }px`
+      }
       document.addEventListener('mouseup', () => {
-        document.removeEventListener('mousemove',move)
-      },{ once:true })
-      console.log(move)
+        document.removeEventListener('mousemove', move)
+      }, { once: true })
       document.addEventListener('mousemove', move)
     })
   }

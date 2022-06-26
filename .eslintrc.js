@@ -7,7 +7,8 @@ module.exports = {
   extends: [
     'plugin:@typescript-eslint/recommended',
     'plugin:vue/vue3-recommended',
-    './.eslintrc-auto-import.json'
+    './.eslintrc-auto-import.json',
+    './.eslintrc-rules.js'
   ],
   parserOptions: {
     parser: '@typescript-eslint/parser',
@@ -49,7 +50,6 @@ module.exports = {
     'no-prototype-builtins': 'off', // 禁止直接调用 Object.prototypes 的内置属性
     'consistent-return': 'off', // 要求 return 语句要么总是指定返回的值，要么不指定
     'one-var-declaration-per-line': 'error', // 要求或禁止在变量声明周围换行
-    'one-var': 'error', // 强制函数中的变量要么一起声明要么分开声明
     'import/named': 'off', // 确保命名导入与远程文件中的命名导出相对应
     'object-curly-newline': 'error', // 强制大括号内换行符的一致性
     'default-case': 'off', // 要求 switch 语句中有 default 分支
@@ -67,6 +67,7 @@ module.exports = {
     '@typescript-eslint/no-var-requires': 'error', // 除import语句外，禁止使用require语句
     '@typescript-eslint/no-empty-function': 'off', // 不允许空函数
     '@typescript-eslint/no-explicit-any': 'warn', // 禁止使用 any 类型
+    '@typescript-eslint/no-non-null-assertion': 'off', // 禁止使用非空断言
     'guard-for-in': 'off', // 要求 for-in 循环中有一个 if 语句
     'class-methods-use-this': 'off', // 强制类方法使用 this
     'vue/html-indent': ['error', 2], // 在<template>中强制一致缩进
