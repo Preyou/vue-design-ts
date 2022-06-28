@@ -1,6 +1,9 @@
 {
   "compileOnSave": true,
   "compilerOptions": {
+    "declaration": true,
+    // "declarationDir": "./types",
+    "declarationMap": true,
     "target": "esnext",
     "useDefineForClassFields": true,
     "module": "esnext",
@@ -8,7 +11,7 @@
     "strict": true,
     "jsx": "preserve",
     // 输出目录
-    "outDir": "./output",
+    "outDir": "./types",
     // 是否包含可以用于 debug 的 sourceMap
     "sourceMap": true,
     "resolveJsonModule": true,
@@ -26,7 +29,9 @@
     },
   },
   "include": [
+    "auto-import.d.ts",
     "components.d.ts",
+    // "types",
     "src/**/*.ts",
     "src/**/*.d.ts",
     "src/**/*.tsx",

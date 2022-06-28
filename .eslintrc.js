@@ -63,7 +63,6 @@ module.exports = {
     'no-await-in-loop': 'off', // 禁止在循环中出现 await
     'import/no-extraneous-dependencies': 'off', // 禁止使用外部包
     'import/no-unresolved': 'off', // 确保导入指向一个可以解析的文件/模块
-    'template-curly-spacing': ['error', 'always'], // 要求或禁止模板字符串中的嵌入表达式周围空格的使用
     '@typescript-eslint/no-var-requires': 'error', // 除import语句外，禁止使用require语句
     '@typescript-eslint/no-empty-function': 'off', // 不允许空函数
     '@typescript-eslint/no-explicit-any': 'warn', // 禁止使用 any 类型

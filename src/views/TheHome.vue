@@ -1,14 +1,17 @@
 <template>
   <div>
     <div class="home">
-      <ThePopup :operations="['close']" />
+      <ThePopup v-bind="bind" />
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import ThePopup from '@/components/popup/Popup.vue'
-
+import ThePopup, { PopuoProps } from '@/components/popup/Popup.vue'
+const bind: PopuoProps = {
+  operations: ['close'],
+  container: '.home'
+}
 </script>
 <style scoped>
 .home {
