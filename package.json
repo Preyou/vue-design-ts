@@ -1,14 +1,26 @@
 {
-  "name": "create",
+  "name": "vue-design-ts",
   "private": true,
   "version": "0.0.0",
+  "files": [
+    "lib"
+  ],
+  "main": "./lib/vue-design-ts.umd.js",
+  "module": "./lib/vue-design-ts.mjs",
+  "types": "./lib/lib/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./lib/vue-design-ts.mjs",
+      "require": "./lib/vue-design-ts.umd.js"
+    }
+  },
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "vite build && vue-tsc --declaration --emitDeclarationOnly -p tsconfig.build.json",
+    "build-ts": "vue-tsc --noEmit -p tsconfig.build.json",
     "preview": "vite preview",
     "lint": "eslint src/**/*.{js,jsx,vue,ts,tsx} --fix",
-    "Type check": "vue-tsc --noEmit",
-    "Build dts": "vue-tsc --declaration --emitDeclarationOnly"
+    "Type check": "vue-tsc --noEmit"
   },
   "dependencies": {
     "@icon-park/vue-next": "^1.4.0",
@@ -33,6 +45,7 @@
     "unplugin-auto-import": "^0.8.7",
     "unplugin-vue-components": "^0.19.6",
     "vite": "^2.9.9",
+    "vite-plugin-dts": "^1.2.0",
     "vue-eslint-parser": "^9.0.2",
     "vue-tsc": "^0.38.2"
   }

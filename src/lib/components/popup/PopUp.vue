@@ -1,8 +1,9 @@
 <template>
-  <n-card v-drag:[true]="dragConfig" :segmented="{
-    content: true,
-    footer: 'soft'
-  }">
+  <n-card
+    v-drag:[true]="dragConfig" :segmented="{
+      content: true,
+      footer: 'soft'
+    }">
     <template #header>
       <n-space justify="space-between" align="center">
         <h3>标题</h3>
@@ -25,7 +26,7 @@
 import { Close } from '@icon-park/vue-next'
 import vDrag from './drag'
 
-export type Oper = {
+export interface Oper {
   name: string,
   title: string,
   icon: typeof Close,
@@ -34,7 +35,7 @@ export type Oper = {
 
 export type Dom = HTMLElement | keyof HTMLElementTagNameMap | string
 
-export interface PopuoProps {
+export interface PopUpProps {
   operations?: Array<Oper | 'close'>
   readonly container?: Dom
   readonly dragBar?: Dom
@@ -56,7 +57,7 @@ export interface PopuoProps {
   // },
 
 }
-const props = withDefaults(defineProps<PopuoProps>(), {
+const props = withDefaults(defineProps<PopUpProps>(), {
   operations: () => ['close'],
   container: () => document.body,
   dragBar: '.n-card-header'

@@ -5,5 +5,6 @@ module.exports = {
         'vue/max-attributes-per-line': 'off', // 强制组件属性不超过一行
         'vue/html-closing-bracket-newline': 'off', // 强制组件内的 html 标签闭合在一行内
         'template-curly-spacing': "off", // 强制在模板字面量中使用一致的空格
+        'no-unused-vars': 'off', // 禁止未使用过的变量
     }
 }

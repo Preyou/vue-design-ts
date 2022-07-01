@@ -11,7 +11,7 @@
     "strict": true,
     "jsx": "preserve",
     // 输出目录
-    "outDir": "lib",
+    "outDir": "./lib",
     // 是否包含可以用于 debug 的 sourceMap
     "sourceMap": true,
     "resolveJsonModule": true,
@@ -22,7 +22,7 @@
       "dom"
     ],
     "skipLibCheck": true,
-    "baseUrl": ".",
+    "baseUrl": "./",
     "paths": {
       "@/*": [
         "src/*"
@@ -35,10 +35,17 @@
   "include": [
     "src/auto-import.d.ts",
     "components.d.ts",
-    // "types",
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
+    "src/lib/**/*.ts",
+    "src/lib/**/*.tsx",
+    "src/lib/**/*.vue"
+  ],
+  "exclude": [
+    "src/components/**/*.ts",
+    "src/components/**/*.vue",
+    "src/components/**/*.tsx",
+    "src/views/**/*.ts",
+    "src/views/**/*.vue",
+    "src/views/**/*.tsx",
   ],
   "references": [
     {
